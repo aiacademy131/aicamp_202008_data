@@ -1,5 +1,6 @@
 
 def learn(filename, label) :
+  import face_recognition as face
   image = face.load_image_file(filename)
   image_encoding = face.face_encodings(image)[0]
 
