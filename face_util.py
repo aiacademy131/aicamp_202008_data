@@ -18,7 +18,7 @@ def learn_list(filename_list, label_list) :
 
   known_face_encodings = []
   known_face_names = []
-  for index in rainge(len(filename_list)) :
+  for index in range(len(filename_list)) :
     
     image = face.load_image_file(filename_list[index])
     image_encoding = face.face_encodings(image)[0]
