@@ -13,6 +13,25 @@ def learn(filename, label) :
   }
   return known_face
 
+def learn_list(filename_list, label_list) :
+  import face_recognition as face
+
+  known_face_encodings = []
+  known_face_names = []
+  for index in rainge(len(filename_list)) :
+    
+    image = face.load_image_file(filename_list[index])
+    image_encoding = face.face_encodings(image)[0]
+
+    known_face_encodings.append(image_encoding)
+    known_face_names.append(label_list[index])
+
+  known_face = {
+      "encodings": known_face_encodings,
+      "names": known_face_names
+  }
+  return known_face
+
 def take_photo(filename='photo.jpg', quality=0.8):
   from IPython.display import display, Javascript
   from google.colab.output import eval_js
