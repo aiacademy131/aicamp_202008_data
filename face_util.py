@@ -1,3 +1,17 @@
+
+def learn(filename, label) :
+  image = face.load_image_file(filename)
+  image_encoding = face.face_encodings(image)[0]
+
+  known_face_encodings = [ image_encoding ]
+  known_face_names = [ label ]
+
+  known_face = {
+      "encodings": known_face_encodings,
+      "names": known_face_names
+  }
+  return known_face
+
 def take_photo(filename='photo.jpg', quality=0.8):
   from IPython.display import display, Javascript
   from google.colab.output import eval_js
